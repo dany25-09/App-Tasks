@@ -1,13 +1,15 @@
-import React, { useState }  from 'react'
+import React, { useState, useContext }  from 'react'
+import { TaskContext } from '../context/TaskContext'
 
-function TasksForm({createTask}) {
+function TasksForm() {
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
+    const { createTask } = useContext(TaskContext) //Voy a usar createTask que está guardado en el contexto
 
     const handleSubmit = (event) => {
         event.preventDefault() // Evita que la página se recargue
-        createTask({ //le voy a mandar a App la nueva tarea mediante la función createTask
+        createTask({ 
             title: title,
             description: description
         })

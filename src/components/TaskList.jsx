@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { TaskCard } from './TaskCard';
+import { TaskContext } from '../context/TaskContext';
 
-function TaskList({tasks, deleteTask}) {
+function TaskList() {
+
+  const { tasks } = useContext(TaskContext) //Voy a usar tasks que está guardado en el contexto
 
   if (tasks.length == 0){
     return <h1>No hay tareas aún</h1>
@@ -11,7 +14,7 @@ function TaskList({tasks, deleteTask}) {
     <div>
       {
         tasks.map(task => (
-          <TaskCard key={task.id} task={task} deleteTask={deleteTask}/> // cuando se de un click se ejecuta esta función
+          <TaskCard key={task.id} task={task}/> // cuando se de un click se ejecuta esta función
         ))
       }
     </div>
