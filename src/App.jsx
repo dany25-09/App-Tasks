@@ -6,10 +6,12 @@ import React, {useState, useEffect} from "react";
 function App() {
 
   return (
-    <>
-      <TasksForm/>
-      <TaskList/>
-    </>
+    <main className="bg-primary h-screen w-full font-Montserrat">
+      <section className="w-11/12 h-full container mx-auto p-10">
+        <TasksForm/>
+        <TaskList/>
+      </section>
+    </main>
   );
 }
 
